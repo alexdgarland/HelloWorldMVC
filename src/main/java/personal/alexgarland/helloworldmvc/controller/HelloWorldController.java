@@ -11,9 +11,7 @@ public class HelloWorldController {
 	String message = "Welcome to Spring MVC";
  
 	@RequestMapping("/hello")
-	public ModelAndView showMessage(@RequestParam(value = "name", required = false, defaultValue = "World") String name) {
-		System.out.println("in controller");
- 
+	public ModelAndView showMessage(@RequestParam(value = "name", required = false, defaultValue = "World") String name) { 
 		ModelAndView mv = new ModelAndView("helloworld");
 		mv.addObject("message", message);
 		mv.addObject("name", name);

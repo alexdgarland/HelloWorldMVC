@@ -9,14 +9,19 @@ pageEncoding="ISO-8859-1"%>
 </head>
 <body>
   <center>
+  
     <h3>
       <a href="hello?name=Alex">Hello World</a>
     </h3>
- 
+  
     <h3>
-      <a href="employee">Employee List</a>
+      <a href="employees">Employee List</a>
     </h3>
- 
+  
+    <h3>
+      <a href="showEmployeeForm">Add Employee</a>
+    </h3>
+  
   </center>
 </body>
 </html>

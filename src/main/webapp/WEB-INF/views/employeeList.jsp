@@ -11,8 +11,16 @@
   <center>
  
     <c:forEach items="${employeeList}" var="employee">
-      ${employee.id}: ${employee.firstName} "${employee.nickName}" ${employee.lastName}<br>
+      ${employee.id}: ${employee.getFullName()}<br>
     </c:forEach>
+ 
+     <h3>
+      <a href="showEmployeeForm">Add Employee</a>
+     </h3>
+     
+     <h4>
+      <a href="<c:url value="/"/>">Back to Home</a>
+     </h4>
  
   </center>
 </body>
