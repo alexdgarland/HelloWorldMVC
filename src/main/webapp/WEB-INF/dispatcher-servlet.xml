@@ -9,6 +9,12 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
  
   <context:component-scan base-package="personal.alexgarland.helloworldmvc.controller" />
  
+  <bean id="employeeManager" class="personal.alexgarland.helloworldmvc.service.EmployeeManager" />
+ 
+  <bean name="/employee" class="personal.alexgarland.helloworldmvc.controller.EmployeeController">
+    <property name="employeeManager" ref="employeeManager"/>
+  </bean>
+ 
   <bean
     class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="prefix">
