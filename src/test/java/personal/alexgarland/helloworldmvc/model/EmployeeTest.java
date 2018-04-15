@@ -17,4 +17,10 @@ public class EmployeeTest {
 		assertEquals("Robert \"Bob\" Dobalina", employee.getFullName());
 	}
 	
+	@Test
+	public void returnsToString() {
+		Employee employee = new Employee(1, "Robert", "Dobalina", "Bob");
+		assertEquals("Employee 1: Robert \"Bob\" Dobalina", employee.toString());
+	}
+	
 }

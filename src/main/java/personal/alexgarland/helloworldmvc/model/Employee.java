@@ -48,6 +48,10 @@ public class Employee implements Cloneable {
 		String mid = this.nickName == "" ? " " : " \"" + this.nickName + "\" ";
 		return this.firstName + mid + this.lastName;
 	}
+
+	@Override public String toString() {
+		return "Employee " + String.valueOf(id) + ": " + getFullName();
+	}
 	
 	@Override
 	public Employee clone() {
