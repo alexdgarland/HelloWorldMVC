@@ -50,10 +50,14 @@ public class Employee implements Cloneable {
 	}
 	
 	@Override
-	public Employee clone() throws CloneNotSupportedException {
-	   
-		return (Employee)super.clone();
-	   
+	public Employee clone() {
+		try {
+			return (Employee)super.clone();
+		}
+		catch (CloneNotSupportedException e) {
+			// Can't happen ; use unchecked exception instead
+			throw new AssertionError();
+		}
 	}
 	
 }

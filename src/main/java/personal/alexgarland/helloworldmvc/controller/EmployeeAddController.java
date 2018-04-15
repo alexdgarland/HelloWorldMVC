@@ -22,8 +22,9 @@ public class EmployeeAddController {
 	}
  
 	@RequestMapping("/addEmployee")
-	public ModelAndView addEmployee(@ModelAttribute Employee e) throws CloneNotSupportedException {
+	public ModelAndView addEmployee(@ModelAttribute Employee e) {
 		employeeManager.addEmployee(e);
 		return new ModelAndView("redirect:employees");
 	}
+	
 }

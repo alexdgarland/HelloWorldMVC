@@ -25,7 +25,7 @@ public class FixedListEmployeeManager implements IEmployeeManager {
 		return employeeList;
 	}
 	
-	public Employee addEmployee(Employee e) throws CloneNotSupportedException {
+	public Employee addEmployee(Employee e) {
 		Employee employee = e.clone();
 		employee.setId(employeeList.size() + 1);
 		employeeList.add(employee);
