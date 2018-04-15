@@ -6,14 +6,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Spring 4 MVC - Employee List</title>
+<link href="<c:url value="resources/css/main.css"/>" rel="stylesheet" />
 </head>
 <body>
   <center>
  
-    <c:forEach items="${employeeList}" var="employee">
-      ${employee.id}: ${employee.getFullName()}<br>
-    </c:forEach>
+    <h2>Employee List</h2>
  
+    <table>
+    <tr><th>ID</th><th>Name</th></tr>
+    <c:forEach items="${employeeList}" var="employee">
+      <tr><td>${employee.id}</td><td>${employee.getFullName()}</td></tr>
+    </c:forEach>
+    </table>
+    
      <h3>
       <a href="showEmployeeForm">Add Employee</a>
      </h3>

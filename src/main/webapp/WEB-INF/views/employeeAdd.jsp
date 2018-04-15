@@ -5,14 +5,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
  
 <html>
+<link href="<c:url value="resources/css/main.css"/>" rel="stylesheet" />
 <body>
   
-  <h1>Add Employee</h1>
+  <h2>Add Employee</h2>
  
   <form:form method="post"  modelAttribute="employeeEntity"  action="addEmployee">
-    First Name:<form:input path="firstName"></form:input><br/>
-    Last Name: <form:input path="lastName"></form:input><br/>
-    Nickname: <form:input path="nickName"></form:input><br/>
+    <table>
+    <tr><th>First Name</th><td><form:input path="firstName"></form:input></td></tr>
+    <tr><th>Last Name</th><td><form:input path="lastName"></form:input></td></tr>
+    <tr><th>Nickname</th><td><form:input path="nickName"></form:input></td></tr>
+    </table>
+    </br>
     <input type="submit" value="Submit">
   </form:form>
   

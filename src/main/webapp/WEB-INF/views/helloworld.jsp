@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Spring 4 MVC - HelloWorld</title>
+<link href="<c:url value="resources/css/main.css"/>" rel="stylesheet" />
 </head>
 <body>
   <center>
@@ -13,8 +14,10 @@
     <h2>Hello World</h2>
   
     <h2>${message}, ${name}!</h2>
+  
+    <img src="<c:url value="resources/images/helloworld.gif"/>" height=150/>
       
-     <h4><a href="<c:url value="/"/>">Back to Home</a></h4>
+    <h4><a href="<c:url value="/"/>">Back to Home</a></h4>
   
   </center>
 </body>
