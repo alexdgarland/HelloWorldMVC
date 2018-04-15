@@ -1,10 +1,10 @@
 package personal.alexgarland.helloworldmvc.model;
 
-public class Employee implements Cloneable {
+public class Employee {
 
 	private int id;
-	private String lastName;
 	private String firstName;
+	private String lastName;
 	private String nickName;
 	
 	public Employee() { }
@@ -53,15 +53,8 @@ public class Employee implements Cloneable {
 		return "Employee " + String.valueOf(id) + ": " + getFullName();
 	}
 	
-	@Override
-	public Employee clone() {
-		try {
-			return (Employee)super.clone();
-		}
-		catch (CloneNotSupportedException e) {
-			// Can't happen ; use unchecked exception instead
-			throw new AssertionError();
-		}
+	public Employee copyWithNewId(int newId) {
+		return new Employee(newId, this.firstName, this.lastName, this.nickName);
 	}
 	
 }

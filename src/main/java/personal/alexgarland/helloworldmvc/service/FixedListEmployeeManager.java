@@ -27,8 +27,7 @@ public class FixedListEmployeeManager implements IEmployeeManager {
 	}
 	
 	public Employee addEmployee(Employee e) {
-		Employee employee = e.clone();
-		employee.setId(employeeList.size() + 1);
+		Employee employee = e.copyWithNewId(employeeList.size() + 1);
 		employeeList.add(employee);
 		return employee;
 	}
