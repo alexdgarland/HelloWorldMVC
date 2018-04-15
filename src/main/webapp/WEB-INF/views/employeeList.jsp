@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Spring 4 MVC - Employee List</title>
+<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/gidole-regular" type="text/css"/>
 <link href="<c:url value="resources/css/main.css"/>" rel="stylesheet" />
 </head>
 <body>
@@ -20,14 +21,11 @@
     </c:forEach>
     </table>
     
-     <h3>
-      <a href="showEmployeeForm">Add Employee</a>
-     </h3>
-     
-     <h4>
-      <a href="<c:url value="/"/>">Back to Home</a>
-     </h4>
- 
+    <ul>
+      <li><a href="showEmployeeForm">Add Employee</a></li>
+      <li><a href="<c:url value="/"/>">Back to Home</a></li>
+    </ul>
+      
   </center>
 </body>
 </html>
