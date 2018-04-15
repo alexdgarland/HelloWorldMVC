@@ -5,14 +5,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
 import personal.alexgarland.helloworldmvc.model.Employee;
 import personal.alexgarland.helloworldmvc.service.IEmployeeManager; 
 
 @Controller
 public class EmployeeAddController {
  
-	@Autowired
 	private IEmployeeManager employeeManager;
+	
+	@Autowired
+	public void setEmployeeManager(IEmployeeManager employeeManager) {
+		this.employeeManager = employeeManager;
+	}
 	
 	@RequestMapping("/showEmployeeForm")
 	public ModelAndView getEmployeeForm() {

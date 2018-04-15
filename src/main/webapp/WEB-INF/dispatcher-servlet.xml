@@ -11,10 +11,6 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
  
   <bean id="employeeManager" class="personal.alexgarland.helloworldmvc.service.FixedListEmployeeManager" />
  
-  <bean name="/employees" class="personal.alexgarland.helloworldmvc.controller.EmployeeListController">
-    <property name="employeeManager" ref="employeeManager"/>
-  </bean>
- 
   <bean
     class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="prefix">

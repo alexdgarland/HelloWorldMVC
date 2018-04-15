@@ -16,7 +16,7 @@
     <input type="submit" value="Submit">
   </form:form>
   
-  <h4><a href="employee">Back to Employee List</a></h4>
+  <h4><a href="employees">Back to Employee List</a></h4>
 
   <h4><a href="<c:url value="/"/>">Back to Home</a></h4>
   
