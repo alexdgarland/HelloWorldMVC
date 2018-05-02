@@ -5,7 +5,7 @@ import java.util.List;
 
 import personal.alexgarland.helloworldmvc.model.Employee;
 
-public class FixedListEmployeeManager implements IEmployeeManager {
+public final class ArrayListEmployeeManager implements IEmployeeManager {
 	
 	private static List<Employee> employeeList = null;
  
@@ -16,7 +16,7 @@ public class FixedListEmployeeManager implements IEmployeeManager {
 		employeeList.add(new Employee(3, "David", "Wilson", "Dave"));
 	}
 	
-	public FixedListEmployeeManager() {
+	public ArrayListEmployeeManager() {
 		if (employeeList == null) {
 			initialiseEmployeeList();
 		}
