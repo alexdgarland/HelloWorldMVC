@@ -7,19 +7,13 @@ import personal.alexgarland.helloworldmvc.model.Employee;
 
 public final class ArrayListEmployeeManager implements IEmployeeManager {
 	
-	private static List<Employee> employeeList = null;
+	private static final List<Employee> employeeList;
  
-	private static void initialiseEmployeeList() {
+	static {
 		employeeList = new ArrayList<Employee>();
 		employeeList.add(new Employee(1, "Michael", "Smith", "Mikey"));
 		employeeList.add(new Employee(2, "Jonathan", "Taylor", "Johnny"));
 		employeeList.add(new Employee(3, "David", "Wilson", "Dave"));
-	}
-	
-	public ArrayListEmployeeManager() {
-		if (employeeList == null) {
-			initialiseEmployeeList();
-		}
 	}
  
 	public List<Employee> getEmployeeList(){
