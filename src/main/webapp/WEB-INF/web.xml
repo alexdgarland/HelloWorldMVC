@@ -32,4 +32,8 @@
     <url-pattern>/resources/**</url-pattern>
   </servlet-mapping>
   
+  <error-page>
+    <location>/ohNoSomethingWentWrong</location>
+  </error-page>
+  
 </web-app>
