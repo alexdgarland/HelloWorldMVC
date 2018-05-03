@@ -4,19 +4,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<t:StandardHeader>HelloWorld Index Page</t:StandardHeader>
+<t:StandardHeader>Error Tests</t:StandardHeader>
 <body>
   <center>
   
-    <h2>"Hello World MVC" - Index Page</h2>
-  
-    <img src="<c:url value="resources/images/index.jpg"/>" height=300/>
-    <br/>  
+    <h2>Test What Happens When Errors Occur!</h2>  
+
     <ul>
-      <li><a href="hello?name=Alex">Hello World</a></li>
-      <li><a href="employees">Employee List</a></li>
-      <li><a href="showEmployeeForm">Add Employee</a></li>
-      <li><a href="errorTest">Error Tests</a></li>
+    <li><a href="<c:url value="invalidPage"/>">404 Page Not Found</a></li>
+    <li><a href="<c:url value="generateServerError"/>">500 Internal Server Error</a></li>
     </ul>
   
   </center>
