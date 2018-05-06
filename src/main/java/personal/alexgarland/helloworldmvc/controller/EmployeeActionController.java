@@ -10,13 +10,20 @@ import personal.alexgarland.helloworldmvc.model.Employee;
 import personal.alexgarland.helloworldmvc.service.IEmployeeManager; 
 
 @Controller
-public class EmployeeAddController {
+public class EmployeeActionController {
  
 	private IEmployeeManager employeeManager;
 	
 	@Autowired
 	public void setEmployeeManager(IEmployeeManager employeeManager) {
 		this.employeeManager = employeeManager;
+	}
+	
+	@RequestMapping("/employees")
+	public ModelAndView getEmployeeList() {	
+		ModelAndView mv = new ModelAndView("employeeList");
+		mv.addObject("employeeList", employeeManager.getEmployeeList());
+		return mv;
 	}
 	
 	@RequestMapping("/showEmployeeForm")
