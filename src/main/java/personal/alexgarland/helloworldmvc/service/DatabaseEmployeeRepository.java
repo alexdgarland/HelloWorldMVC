@@ -63,6 +63,11 @@ public final class DatabaseEmployeeRepository implements IEmployeeRepository {
 		return list;
 	}
 	
+	static final Integer deleteEmployeeWithPreparedStatement(PreparedStatement ps, int employeeId) throws SQLException {
+		ps.setInt(1, employeeId);
+		return ps.executeUpdate();
+	}
+	
 	@Override
 	public Employee addEmployee(Employee e) {
 		String query = queryProperties.getProperty("add_employee_query");
@@ -78,8 +83,10 @@ public final class DatabaseEmployeeRepository implements IEmployeeRepository {
 	}
 
 	@Override
-	public void deleteEmployeeById(int EmployeeId) {
-		// TODO Auto-generated method stub
+	public void deleteEmployeeById(int employeeId) {
+		String query = queryProperties.getProperty("delete_query");
+		PreparedStatementFunction<Integer> f = (ps) -> deleteEmployeeWithPreparedStatement(ps, employeeId);
+		queryExecutor.withPreparedStatement(query, f);
 	}
 	
 }

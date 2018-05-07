@@ -2,12 +2,13 @@ package personal.alexgarland.helloworldmvc.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import static java.util.stream.Collectors.toList;
 
 import personal.alexgarland.helloworldmvc.model.Employee;
 
 public final class ArrayListEmployeeRepository implements IEmployeeRepository {
 	
-	private static final List<Employee> employeeList;
+	private static List<Employee> employeeList;
  
 	static {
 		employeeList = new ArrayList<Employee>();
@@ -29,9 +30,11 @@ public final class ArrayListEmployeeRepository implements IEmployeeRepository {
 	}
 
 	@Override
-	public void deleteEmployeeById(int EmployeeId) {
-		// TODO Auto-generated method stub
-		
+	public void deleteEmployeeById(int employeeId) {
+		employeeList = employeeList
+				.stream()
+				.filter(e -> e.getId() != employeeId)
+				.collect(toList());
 	}
 	
 }

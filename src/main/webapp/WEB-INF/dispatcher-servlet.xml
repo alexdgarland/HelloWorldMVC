@@ -15,10 +15,12 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
   <bean name="queryExecutor" class="personal.alexgarland.helloworldmvc.service.util.database.DatabaseQueryExecutor">
     <constructor-arg index="0" value="postgres.database.properties"/>
   </bean>
- 
+  
   <bean id="employeeManager" class="personal.alexgarland.helloworldmvc.service.DatabaseEmployeeRepository">
     <constructor-arg index="0" value="postgres.query.properties"/>
   </bean>
+ 
+  <!-- <bean id="employeeRepository" class="personal.alexgarland.helloworldmvc.service.ArrayListEmployeeRepository" /> -->
  
   <bean
     class="org.springframework.web.servlet.view.InternalResourceViewResolver">

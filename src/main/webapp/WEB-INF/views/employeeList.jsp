@@ -13,7 +13,17 @@
     <table>
     <tr><th>ID</th><th>Name</th></tr>
     <c:forEach items="${employeeList}" var="employee">
-      <tr><td>${employee.id}</td><td>${employee.getFullName()}</td></tr>
+      <tr>
+        <td>${employee.id}</td>
+        <td>${employee.getFullName()}</td>
+        <td>
+        <c:url var="deleteUrl" value="/deleteEmployee"/>    
+        <form action="${deleteUrl}" method="POST">
+          <input id="employee" name="employeeId" type="hidden" value="${employee.id}"/>
+          <input type="submit" value="delete" onClick="return confirm('Are you sure you want to delete employee with ID ${employee.id}?')"/>
+        </form>
+        </td>
+      </tr>
     </c:forEach>
     </table>
     

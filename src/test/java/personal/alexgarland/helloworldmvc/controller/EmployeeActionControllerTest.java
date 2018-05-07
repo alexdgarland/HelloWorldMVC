@@ -65,5 +65,11 @@ public class EmployeeActionControllerTest {
 		assertEquals(1, model.size());
 		assertEquals(model.get("employeeList"), employees);
 	}
+	
+	@Test
+	public void deletesEmployee() {
+		testController.deleteEmployeeById(3);
+		verify(employeeManager, times(1)).deleteEmployeeById(3);
+	}
 
 }
