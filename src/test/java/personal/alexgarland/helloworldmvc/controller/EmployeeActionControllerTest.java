@@ -17,7 +17,7 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.web.servlet.ModelAndView;
 
 import personal.alexgarland.helloworldmvc.model.Employee;
-import personal.alexgarland.helloworldmvc.service.IEmployeeManager;
+import personal.alexgarland.helloworldmvc.service.IEmployeeRepository;
 
 public class EmployeeActionControllerTest {
 
@@ -28,7 +28,7 @@ public class EmployeeActionControllerTest {
 	private EmployeeActionController testController;
 	
 	@Mock
-	private IEmployeeManager employeeManager;
+	private IEmployeeRepository employeeManager;
 	
     @Before
     public void initMocks(){

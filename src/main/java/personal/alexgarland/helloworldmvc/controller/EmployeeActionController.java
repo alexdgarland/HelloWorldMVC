@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import personal.alexgarland.helloworldmvc.model.Employee;
-import personal.alexgarland.helloworldmvc.service.IEmployeeManager; 
+import personal.alexgarland.helloworldmvc.service.IEmployeeRepository; 
 
 @Controller
 public class EmployeeActionController {
  
-	private IEmployeeManager employeeManager;
+	private IEmployeeRepository employeeManager;
 	
 	@Autowired
-	public void setEmployeeManager(IEmployeeManager employeeManager) {
+	public void setEmployeeManager(IEmployeeRepository employeeManager) {
 		this.employeeManager = employeeManager;
 	}
 	
