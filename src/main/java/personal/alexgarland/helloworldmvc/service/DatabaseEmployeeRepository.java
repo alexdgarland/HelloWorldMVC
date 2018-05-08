@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import personal.alexgarland.helloworldmvc.model.Employee;
 import personal.alexgarland.helloworldmvc.service.util.database.IQueryExecutor;
 import personal.alexgarland.helloworldmvc.service.util.database.PreparedStatementFunction;
@@ -19,14 +17,10 @@ import personal.alexgarland.helloworldmvc.service.util.database.PreparedStatemen
 public final class DatabaseEmployeeRepository implements IEmployeeRepository {
 
 	private final Properties queryProperties;
-	private IQueryExecutor queryExecutor;
+	private final IQueryExecutor queryExecutor;
 	
-	public DatabaseEmployeeRepository(String queryPropertyFilename) {
+	public DatabaseEmployeeRepository(String queryPropertyFilename, IQueryExecutor queryExecutor) {
 		this.queryProperties = readPropertyFile(queryPropertyFilename);
-	}
-	
-	@Autowired
-	public void setQueryExecutor(IQueryExecutor queryExecutor) {
 		this.queryExecutor = queryExecutor;
 	}
 		
