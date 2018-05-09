@@ -1,6 +1,6 @@
 package personal.alexgarland.helloworldmvc.model;
 
-public class Employee {
+public class Employee implements Comparable<Employee> {
 	
 	@Override
 	public int hashCode() {
@@ -99,6 +99,11 @@ public class Employee {
 	
 	public Employee copyWithNewId(int newId) {
 		return new Employee(newId, this.firstName, this.lastName, this.nickName);
+	}
+
+	@Override
+	public int compareTo(Employee e) {
+		return this.id - e.id;
 	}
 	
 }

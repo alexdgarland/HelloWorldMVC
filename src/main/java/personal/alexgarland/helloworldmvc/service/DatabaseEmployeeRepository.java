@@ -83,4 +83,17 @@ public final class DatabaseEmployeeRepository implements IEmployeeRepository {
 		queryExecutor.withPreparedStatement(query, f);
 	}
 	
+	@Override
+	public void updateEmployee(Employee e) {
+		String query = queryProperties.getProperty("update_employee_query");
+		PreparedStatementFunction<Employee> f = (ps) -> addEmployeeWithPreparedStatement(ps, e);
+		queryExecutor.withPreparedStatement(query, f);
+	}
+
+	@Override
+	public Employee getEmployeeById(int employeeId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 }

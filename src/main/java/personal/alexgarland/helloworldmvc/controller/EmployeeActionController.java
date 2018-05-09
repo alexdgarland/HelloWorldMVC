@@ -16,6 +16,8 @@ public class EmployeeActionController {
  
 	private IEmployeeRepository employeeRepository;
 	
+	private static final ModelAndView EMPLOYEE_LIST_REDIRECT = new ModelAndView("redirect:employees");
+	
 	@Autowired
 	public void setEmployeeManager(IEmployeeRepository employeeRepository) {
 		this.employeeRepository = employeeRepository;
@@ -28,8 +30,8 @@ public class EmployeeActionController {
 		return mv;
 	}
 	
-	@RequestMapping("/showEmployeeForm")
-	public ModelAndView getEmployeeForm() {
+	@RequestMapping("/showAddEmployeeForm")
+	public ModelAndView getAddEmployeeForm() {
 		ModelAndView mv = new ModelAndView("employeeAdd");
 		mv.addObject("employeeEntity", new Employee());
 		return mv;
@@ -38,13 +40,27 @@ public class EmployeeActionController {
 	@RequestMapping("/addEmployee")
 	public ModelAndView addEmployee(@ModelAttribute Employee e) {
 		employeeRepository.addEmployee(e);
-		return new ModelAndView("redirect:employees");
+		return EMPLOYEE_LIST_REDIRECT;
 	}
 	
 	@RequestMapping(value = "/deleteEmployee", method = RequestMethod.POST)
 	public ModelAndView deleteEmployeeById(@RequestParam int employeeId) {
 		employeeRepository.deleteEmployeeById(employeeId);
-		return new ModelAndView("redirect:employees");
+		return EMPLOYEE_LIST_REDIRECT;
+	}
+
+	@RequestMapping("/showUpdateEmployeeForm")
+	public ModelAndView getUpdateEmployeeForm(@RequestParam int employeeId) {
+		ModelAndView mv = new ModelAndView("employeeUpdate");
+		Employee e = employeeRepository.getEmployeeById(employeeId);
+		mv.addObject("employeeEntity", e);
+		return mv;
+	}
+	
+	@RequestMapping("/updateEmployee")
+	public ModelAndView updateEmployee(@ModelAttribute Employee e) {
+		employeeRepository.updateEmployee(e);
+		return EMPLOYEE_LIST_REDIRECT;
 	}
 	
 }

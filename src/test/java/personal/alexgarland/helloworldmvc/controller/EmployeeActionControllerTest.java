@@ -39,8 +39,8 @@ public class EmployeeActionControllerTest {
     }
 	
 	@Test
-	public void getsEmployeeForm() {
-		ModelAndView result = testController.getEmployeeForm();
+	public void getsAddEmployeeForm() {
+		ModelAndView result = testController.getAddEmployeeForm();
 		Map<String, Object> model = result.getModel();
 		
 		assertEquals("employeeAdd", result.getViewName());

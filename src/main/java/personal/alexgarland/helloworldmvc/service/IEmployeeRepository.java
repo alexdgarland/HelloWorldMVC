@@ -11,5 +11,9 @@ public interface IEmployeeRepository {
 	public Employee addEmployee(Employee e);
 	
 	public void deleteEmployeeById(int employeeId);
+
+	public void updateEmployee(Employee e);
+
+	public Employee getEmployeeById(int employeeId);
 	
 }

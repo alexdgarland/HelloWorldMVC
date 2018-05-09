@@ -15,7 +15,7 @@
     <ul>
       <li><a href="hello?name=Alex">Hello World</a></li>
       <li><a href="employees">Employee List</a></li>
-      <li><a href="showEmployeeForm">Add Employee</a></li>
+      <li><a href="showAddEmployeeForm">Add Employee</a></li>
       <li><a href="errorTest">Error Tests</a></li>
     </ul>
   

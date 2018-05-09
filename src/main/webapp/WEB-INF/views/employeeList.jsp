@@ -23,12 +23,19 @@
           <input type="submit" value="delete" onClick="return confirm('Are you sure you want to delete employee with ID ${employee.id}?')"/>
         </form>
         </td>
+        <td>
+        <c:url var="updateUrl" value="/showUpdateEmployeeForm"/>    
+        <form action="${updateUrl}" method="POST">
+          <input id="employee" name="employeeId" type="hidden" value="${employee.id}"/>
+          <input type="submit" value="update"/>
+        </form>
+        </td>
       </tr>
     </c:forEach>
     </table>
     
     <ul>
-      <li><a href="showEmployeeForm">Add Employee</a></li>
+      <li><a href="showAddEmployeeForm">Add Employee</a></li>
       <li><a href="<c:url value="/"/>">Back to Home</a></li>
     </ul>
       
