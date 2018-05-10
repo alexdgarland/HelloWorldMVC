@@ -35,7 +35,7 @@ public class EmployeeActionControllerTest {
         MockitoAnnotations.initMocks(this);
 		when(employeeManager.getEmployeeList()).thenReturn(employees);
 		testController = new EmployeeActionController();
-		testController.setEmployeeManager(employeeManager);
+		testController.setEmployeeRepository(employeeManager);
     }
 	
 	@Test

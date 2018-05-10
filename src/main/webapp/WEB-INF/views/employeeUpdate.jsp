@@ -12,7 +12,7 @@
  
   <form:form method="post"  modelAttribute="employeeEntity"  action="updateEmployee">
     <table>
-    <tr><th>ID</th><td><form:input path="id" disabled="true"></form:input></td></tr>
+    <tr><th>ID</th><td>${employeeEntity.id}<form:input path="id" hidden="true"></form:input></td></tr>
     <tr><th>First Name</th><td><form:input path="firstName"></form:input></td></tr>
     <tr><th>Last Name</th><td><form:input path="lastName"></form:input></td></tr>
     <tr><th>Nickname</th><td><form:input path="nickName"></form:input></td></tr>

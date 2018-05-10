@@ -19,7 +19,7 @@ public class EmployeeActionController {
 	private static final ModelAndView EMPLOYEE_LIST_REDIRECT = new ModelAndView("redirect:employees");
 	
 	@Autowired
-	public void setEmployeeManager(IEmployeeRepository employeeRepository) {
+	public void setEmployeeRepository(IEmployeeRepository employeeRepository) {
 		this.employeeRepository = employeeRepository;
 	}
 	
