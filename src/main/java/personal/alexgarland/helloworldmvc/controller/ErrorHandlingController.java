@@ -8,11 +8,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ErrorHandlingController {
- 
+	
     @RequestMapping("ohNoSomethingWentWrong")
     public ModelAndView renderErrorPage(HttpServletRequest httpRequest) {
         
-        int httpErrorCode = getErrorCode(httpRequest);
+        int httpErrorCode = (Integer)httpRequest.getAttribute("javax.servlet.error.status_code");
  
         switch (httpErrorCode) {
             case 500: {
@@ -25,11 +25,6 @@ public class ErrorHandlingController {
         
         return new ModelAndView("genericError");
         
-    }
-    
-    private int getErrorCode(HttpServletRequest httpRequest) {
-        return (Integer) httpRequest
-          .getAttribute("javax.servlet.error.status_code");
     }
 
 }

@@ -28,14 +28,15 @@ public class EmployeeActionControllerTest {
 	private EmployeeActionController testController;
 	
 	@Mock
-	private IEmployeeRepository employeeManager;
+	private IEmployeeRepository employeeRepository;
 	
     @Before
     public void initMocks(){
         MockitoAnnotations.initMocks(this);
-		when(employeeManager.getEmployeeList()).thenReturn(employees);
+		when(employeeRepository.getEmployeeList()).thenReturn(employees);
+		when(employeeRepository.getEmployeeById(1)).thenReturn(employee1);
 		testController = new EmployeeActionController();
-		testController.setEmployeeRepository(employeeManager);
+		testController.setEmployeeRepository(employeeRepository);
     }
 	
 	@Test
@@ -51,7 +52,7 @@ public class EmployeeActionControllerTest {
 	@Test
 	public void addsEmployee() {
 		ModelAndView result = testController.addEmployee(employee1);
-		verify(employeeManager, times(1)).addEmployee(employee1);
+		verify(employeeRepository, times(1)).addEmployee(employee1);
 		assertEquals("redirect:employees", result.getViewName());
 		assertEquals(0, result.getModel().size());
 	}
@@ -63,13 +64,30 @@ public class EmployeeActionControllerTest {
 		
 		Map<String, Object> model = result.getModel();
 		assertEquals(1, model.size());
-		assertEquals(model.get("employeeList"), employees);
+		assertEquals(employees, model.get("employeeList"));
 	}
 	
 	@Test
 	public void deletesEmployee() {
 		testController.deleteEmployeeById(3);
-		verify(employeeManager, times(1)).deleteEmployeeById(3);
+		verify(employeeRepository, times(1)).deleteEmployeeById(3);
 	}
 
+	@Test
+	public void getsUpdateEmployeeForm() {
+		ModelAndView result = testController.getUpdateEmployeeForm(1);
+		Map<String, Object> model = result.getModel();
+		
+		assertEquals("employeeUpdate", result.getViewName());
+		assertEquals(1, model.size());
+		assertEquals(employee1, model.get("employeeEntity"));
+	}
+
+	@Test
+	public void updatesEmployee() {
+		Employee employee1NewDetails = new Employee(1, "Robert", "Dobalina", "Bob");
+		testController.updateEmployee(employee1NewDetails);
+		verify(employeeRepository, times(1)).updateEmployee(employee1NewDetails);
+	}
+	
 }

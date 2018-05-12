@@ -1,6 +1,24 @@
 package personal.alexgarland.helloworldmvc.model;
 
 public class Employee implements Comparable<Employee> {
+
+	private int id;
+	private String firstName;
+	private String lastName;
+	private String nickName;
+	
+	public Employee() { }
+	
+	public Employee(int id, String firstName, String lastName, String nickName) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.nickName = nickName;
+	}
+	
+	public Employee(int id, String firstName, String lastName) {
+		this(id, firstName, lastName, "");
+	}
 	
 	@Override
 	public int hashCode() {
@@ -42,24 +60,6 @@ public class Employee implements Comparable<Employee> {
 		return true;
 	}
 
-	private int id;
-	private String firstName;
-	private String lastName;
-	private String nickName;
-	
-	public Employee() { }
-	
-	public Employee(int id, String firstName, String lastName, String nickName) {
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.nickName = nickName;
-	}
-	
-	public Employee(int id, String firstName, String lastName) {
-		this(id, firstName, lastName, "");
-	}
-	
 	public int getId() {
 		return this.id;
 	}
