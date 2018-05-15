@@ -10,11 +10,14 @@ public final class ArrayListEmployeeRepository implements IEmployeeRepository {
 
   private static List<Employee> employeeList;
 
+  private static final IdSequence sequence;
+
   static {
     employeeList = new ArrayList<Employee>();
     employeeList.add(new Employee(1, "Michael", "Smith", "Mikey"));
     employeeList.add(new Employee(2, "Jonathan", "Taylor", "Johnny"));
     employeeList.add(new Employee(3, "David", "Wilson", "Dave"));
+    sequence = new IdSequence(4);
   }
 
   @Override
@@ -24,7 +27,7 @@ public final class ArrayListEmployeeRepository implements IEmployeeRepository {
 
   @Override
   public Employee addEmployee(Employee e) {
-    Employee employee = e.copyWithNewId(employeeList.size() + 1);
+    Employee employee = e.copyWithNewId(sequence.getNextId());
     employeeList.add(employee);
     return employee;
   }
