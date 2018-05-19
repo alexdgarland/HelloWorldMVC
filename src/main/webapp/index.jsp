@@ -4,13 +4,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<t:StandardHeader>HelloWorld Index Page</t:StandardHeader>
+<t:StandardHeader>"Hello World MVC" - Home Page</t:StandardHeader>
 <body>
   <center>
   
-    <h2>"Hello World MVC" - Index Page</h2>
+    <h2>Welcome to "Hello World MVC"</h2>
   
-    <img src="<c:url value="resources/images/index.jpg"/>" height=300/>
+    <img src="<c:url value="resources/images/hellobear.gif"/>" height=250/>
     <br/>  
     <ul>
       <li><a href="hello?name=Alex">Hello World</a></li>
