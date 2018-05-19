@@ -7,7 +7,7 @@ Simple toy project to play with MVC based (very loosely!) on [this tutorial](htt
 
 Also made extensive use of [tutorials at baeldung.com](http://www.baeldung.com/start-here) which seems like a pretty great resource.
 
-New and improved!:
+## New & Improved!
 
 - Fully converted to Kotlin for less verbose Java BS!
 - Probably more lambdas than are strictly necessary!
