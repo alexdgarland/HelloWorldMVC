@@ -10,7 +10,7 @@ class ArrayListEmployeeRepository : IEmployeeRepository {
         }
 
     override fun addEmployee(e: Employee): Employee {
-        val employee = e.copyWithNewId(sequence.getNextId())
+        val employee = e.copy(id = sequence.getNextId())
         staticEmployeeList.add(employee)
         return employee
     }

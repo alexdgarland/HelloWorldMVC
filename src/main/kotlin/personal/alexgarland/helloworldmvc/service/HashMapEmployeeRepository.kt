@@ -9,7 +9,7 @@ class HashMapEmployeeRepository : IEmployeeRepository {
         get() = ArrayList(employeeMap.values)
 
     override fun addEmployee(e: Employee): Employee {
-        val employee = e.copyWithNewId(sequence.getNextId())
+        val employee = e.copy(id = sequence.getNextId())
         putEmployeeToMap(employee)
         return employee
     }

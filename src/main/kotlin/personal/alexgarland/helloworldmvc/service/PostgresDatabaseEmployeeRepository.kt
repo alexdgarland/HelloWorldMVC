@@ -8,23 +8,22 @@ import java.util.*
 
 class PostgresDatabaseEmployeeRepository : AbstractDatabaseEmployeeRepository() {
 
-    override val dbPropertiesFileName: String
-        get() = "postgres.database.properties"
+    override val dbPropertiesFileName: String = "postgres.database.properties"
 
-    override val addEmployeeQuery: String
-        get() = "INSERT INTO employees (first_name, last_name, nick_name) VALUES (?, ?, ?) RETURNING id"
+    override val addEmployeeQuery: String =
+            "INSERT INTO employees (first_name, last_name, nick_name) VALUES (?, ?, ?) RETURNING id"
 
-    override val getEmployeeListQuery: String
-        get() = "SELECT id, first_name, last_name, nick_name FROM employees WHERE logical_delete = false"
+    override val getEmployeeListQuery: String =
+            "SELECT id, first_name, last_name, nick_name FROM employees WHERE logical_delete = false"
 
-    override val deleteQuery: String
-        get() = "UPDATE employees SET logical_delete = true WHERE id = ?"
+    override val deleteQuery: String =
+            "UPDATE employees SET logical_delete = true WHERE id = ?"
 
-    override val updateQuery: String
-        get() = "UPDATE employees SET first_name = ?, last_name = ?, nick_name = ? WHERE id = ?"
+    override val updateQuery: String =
+            "UPDATE employees SET first_name = ?, last_name = ?, nick_name = ? WHERE id = ?"
 
-    override val getEmployeeByIdQuery: String
-        get() = "SELECT first_name, last_name, nick_name FROM employees WHERE logical_delete = false AND id = ?"
+    override val getEmployeeByIdQuery: String =
+            "SELECT first_name, last_name, nick_name FROM employees WHERE logical_delete = false AND id = ?"
 
     @Throws(SQLException::class)
     override fun addEmployeeWithPS(ps: PreparedStatement, e: Employee): Employee {
@@ -33,8 +32,8 @@ class PostgresDatabaseEmployeeRepository : AbstractDatabaseEmployeeRepository() 
         ps.setString(3, e.nickName)
         ps.executeQuery().use { rs ->
             rs.next()
-            val id = rs.getInt("id")
-            return e.copyWithNewId(id)
+            val dbGeneratedId = rs.getInt("id")
+            return e.copy(id = dbGeneratedId)
         }
     }
 

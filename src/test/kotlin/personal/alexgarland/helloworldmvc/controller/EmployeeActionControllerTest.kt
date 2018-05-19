@@ -27,8 +27,7 @@ class EmployeeActionControllerTest {
         `when`(employeeRepository!!.employeeList).thenReturn(employees)
         `when`(employeeRepository.getEmployeeById(1)).thenReturn(employee1)
 
-        testController = EmployeeActionController()
-        testController!!.setEmployeeRepository(employeeRepository)
+        testController = EmployeeActionController(employeeRepository)
 
         LogbackEventChecker.setup()
     }

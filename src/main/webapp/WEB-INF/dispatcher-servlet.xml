@@ -1,34 +1,38 @@
-<beans xmlns="http://www.springframework.org/schema/beans"
-  xmlns:context="http://www.springframework.org/schema/context"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:mvc="http://www.springframework.org/schema/mvc"
-  xsi:schemaLocation="
+<beans xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="
 http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context-4.0.xsd
 http://www.springframework.org/schema/mvc
 http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
- 
-  <context:component-scan base-package="personal.alexgarland.helloworldmvc.controller" />
-  
-<!--   <bean id="employeeRepository" class="personal.alexgarland.helloworldmvc.service.PostgresDatabaseEmployeeRepository" /> -->
- 
-<!--   <bean id="employeeRepository" class="personal.alexgarland.helloworldmvc.service.ArrayListEmployeeRepository" /> -->
- 
-  <bean id="employeeRepository" class="personal.alexgarland.helloworldmvc.service.HashMapEmployeeRepository" />
- 
-  <bean
-    class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-    <property name="prefix">
-      <value>/WEB-INF/views/</value>
-    </property>
-    <property name="suffix">
-      <value>.jsp</value>
-    </property>
-  </bean>
-  
-  <mvc:resources location="/resources/" mapping="/resources/**" />
-  <mvc:annotation-driven/>
-  
+
+    <context:component-scan base-package="personal.alexgarland.helloworldmvc.controller"/>
+
+    <!--   <bean id="employeeRepository" class="personal.alexgarland.helloworldmvc.service.PostgresDatabaseEmployeeRepository" /> -->
+
+    <!--   <bean id="employeeRepository" class="personal.alexgarland.helloworldmvc.service.ArrayListEmployeeRepository" /> -->
+
+    <bean id="employeeRepository" class="personal.alexgarland.helloworldmvc.service.HashMapEmployeeRepository"/>
+
+    <bean id="employeeActionController" class="personal.alexgarland.helloworldmvc.controller.EmployeeActionController">
+        <constructor-arg index="0" ref="employeeRepository"/>
+    </bean>
+
+    <bean
+            class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix">
+            <value>/WEB-INF/views/</value>
+        </property>
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+    </bean>
+
+    <mvc:resources location="/resources/" mapping="/resources/**"/>
+    <mvc:annotation-driven/>
+
 </beans>
