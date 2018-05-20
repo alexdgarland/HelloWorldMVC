@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.servlet.ModelAndView
 
-private const val message = "Welcome to Spring MVC"
 
 @Controller
 class HelloWorldController {
@@ -19,4 +18,10 @@ class HelloWorldController {
 
     }
 
+    companion object {
+        private const val message = "Welcome to Spring MVC"
+    }
+
 }
+
+

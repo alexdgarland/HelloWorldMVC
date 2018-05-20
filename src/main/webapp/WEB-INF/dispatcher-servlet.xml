@@ -12,11 +12,11 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
     <context:component-scan base-package="personal.alexgarland.helloworldmvc.controller"/>
 
-    <!--   <bean id="employeeRepository" class="personal.alexgarland.helloworldmvc.service.PostgresDatabaseEmployeeRepository" /> -->
+    <!--   <bean id="employeeRepository" class="personal.alexgarland.helloworldmvc.service.repository.database.PostgresDatabaseEmployeeRepository" /> -->
 
-    <!--   <bean id="employeeRepository" class="personal.alexgarland.helloworldmvc.service.ArrayListEmployeeRepository" /> -->
+    <!--   <bean id="employeeRepository" class="personal.alexgarland.helloworldmvc.service.repository.inmemory.ArrayListEmployeeRepository" /> -->
 
-    <bean id="employeeRepository" class="personal.alexgarland.helloworldmvc.service.HashMapEmployeeRepository"/>
+    <bean id="employeeRepository" class="personal.alexgarland.helloworldmvc.service.repository.inmemory.HashMapEmployeeRepository"/>
 
     <bean id="employeeActionController" class="personal.alexgarland.helloworldmvc.controller.EmployeeActionController">
         <constructor-arg index="0" ref="employeeRepository"/>

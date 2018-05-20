@@ -1,8 +1,9 @@
-package personal.alexgarland.helloworldmvc.service
+package personal.alexgarland.helloworldmvc.service.repository.inmemory
 
 import org.hamcrest.CoreMatchers.`is`
 import org.junit.Assert.assertThat
 import org.junit.Test
+import personal.alexgarland.helloworldmvc.service.repository.inmemory.IdSequence
 
 class IdSequenceTest {
 

@@ -1,6 +1,7 @@
-package personal.alexgarland.helloworldmvc.service
+package personal.alexgarland.helloworldmvc.service.repository.inmemory
 
 import personal.alexgarland.helloworldmvc.model.Employee
+import personal.alexgarland.helloworldmvc.service.repository.IEmployeeRepository
 
 class ArrayListEmployeeRepository : IEmployeeRepository {
 

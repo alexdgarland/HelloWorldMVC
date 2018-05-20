@@ -9,7 +9,7 @@ import org.mockito.Mock
 import org.mockito.Mockito.*
 import org.mockito.MockitoAnnotations
 import personal.alexgarland.helloworldmvc.model.Employee
-import personal.alexgarland.helloworldmvc.service.IEmployeeRepository
+import personal.alexgarland.helloworldmvc.service.repository.IEmployeeRepository
 import personal.alexgarland.helloworldmvc.testutil.LogbackEventChecker
 import java.util.*
 import java.util.Arrays.asList

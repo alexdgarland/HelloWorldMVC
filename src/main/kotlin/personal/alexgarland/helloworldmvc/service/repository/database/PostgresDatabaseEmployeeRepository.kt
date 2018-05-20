@@ -1,4 +1,4 @@
-package personal.alexgarland.helloworldmvc.service
+package personal.alexgarland.helloworldmvc.service.repository.database
 
 
 import personal.alexgarland.helloworldmvc.model.Employee

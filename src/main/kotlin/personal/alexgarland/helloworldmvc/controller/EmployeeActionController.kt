@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.servlet.ModelAndView
 import personal.alexgarland.helloworldmvc.model.Employee
-import personal.alexgarland.helloworldmvc.service.IEmployeeRepository
+import personal.alexgarland.helloworldmvc.service.repository.IEmployeeRepository
 
 @Controller
 class EmployeeActionController(private val employeeRepository: IEmployeeRepository) {

@@ -1,4 +1,4 @@
-package personal.alexgarland.helloworldmvc.service
+package personal.alexgarland.helloworldmvc.service.repository.inmemory
 
 class IdSequence @JvmOverloads constructor(private var nextId: Int = 1) {
     

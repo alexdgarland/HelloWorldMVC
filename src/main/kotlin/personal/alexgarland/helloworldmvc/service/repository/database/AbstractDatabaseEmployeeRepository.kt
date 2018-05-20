@@ -1,6 +1,7 @@
-package personal.alexgarland.helloworldmvc.service
+package personal.alexgarland.helloworldmvc.service.repository.database
 
 import personal.alexgarland.helloworldmvc.model.Employee
+import personal.alexgarland.helloworldmvc.service.repository.IEmployeeRepository
 import java.io.FileInputStream
 import java.io.IOException
 import java.sql.Connection
@@ -69,7 +70,7 @@ abstract class AbstractDatabaseEmployeeRepository : IEmployeeRepository {
     protected abstract fun deleteEmployeeWithPS(ps: PreparedStatement, employeeId: Int): Int
 
     override fun deleteEmployeeById(employeeId: Int) {
-        withPS<Int>(deleteQuery, { ps -> deleteEmployeeWithPS(ps, employeeId) })
+        withPS(deleteQuery, { ps -> deleteEmployeeWithPS(ps, employeeId) })
     }
 
     @Throws(SQLException::class)
