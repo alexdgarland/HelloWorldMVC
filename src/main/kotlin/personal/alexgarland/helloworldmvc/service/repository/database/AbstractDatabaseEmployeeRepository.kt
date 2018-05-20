@@ -43,9 +43,13 @@ abstract class AbstractDatabaseEmployeeRepository : IEmployeeRepository {
         this.dbProperties = properties
     }
 
-    private fun <A> withPS(sql: String, function: (PreparedStatement) -> A): A {
+    private inline fun <A> withPS(sql: String, function: (PreparedStatement) -> A): A {
         try {
-            connection.use { con -> con.prepareStatement(sql).use { ps -> return function(ps) } }
+            connection.use { con ->
+                con.prepareStatement(sql).use { ps ->
+                    return function(ps)
+                }
+            }
         } catch (ex: SQLException) {
             throw RuntimeException(ex.message)
         }
