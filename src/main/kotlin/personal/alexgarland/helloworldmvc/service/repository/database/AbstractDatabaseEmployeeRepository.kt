@@ -12,13 +12,22 @@ import java.util.*
 
 abstract class AbstractDatabaseEmployeeRepository : IEmployeeRepository {
 
-    private val dbProperties: Properties
-
     protected abstract val dbPropertiesFileName: String
 
-    private val connection: Connection
-        @Throws(SQLException::class)
-        get() = DriverManager.getConnection(dbProperties.getProperty("url"), dbProperties)
+    @Throws(SQLException::class)
+    private fun getNewConnection(): Connection {
+        val classLoader = Thread.currentThread().contextClassLoader
+        val path = classLoader.getResource(dbPropertiesFileName)!!.path
+        val dbProperties = Properties()
+        try {
+            dbProperties.load(FileInputStream(path))
+        } catch (ex: IOException) {
+            throw RuntimeException(ex)
+        }
+        return DriverManager.getConnection(dbProperties.getProperty("url"), dbProperties)
+    }
+
+    private val connection: Connection get() = getNewConnection()
 
     protected abstract val addEmployeeQuery: String
 
@@ -29,19 +38,6 @@ abstract class AbstractDatabaseEmployeeRepository : IEmployeeRepository {
     protected abstract val updateQuery: String
 
     protected abstract val getEmployeeByIdQuery: String
-
-    init {
-        val classLoader = Thread.currentThread().contextClassLoader
-        val path = classLoader.getResource(dbPropertiesFileName)!!.path
-        val properties = Properties()
-        try {
-            properties.load(FileInputStream(path))
-        } catch (ex: IOException) {
-            throw RuntimeException(ex)
-        }
-
-        this.dbProperties = properties
-    }
 
     private inline fun <A> withPS(sql: String, function: (PreparedStatement) -> A): A {
         try {
@@ -90,5 +86,5 @@ abstract class AbstractDatabaseEmployeeRepository : IEmployeeRepository {
     override fun getEmployeeById(employeeId: Int): Employee {
         return withPS(getEmployeeByIdQuery, { ps -> getEmployeeByIdWithPS(ps, employeeId) })
     }
-
 }
+
