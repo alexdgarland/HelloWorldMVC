@@ -11,7 +11,7 @@
 
     <properties>
         <kotlin.version>1.2.51</kotlin.version>
-        <spring.version>4.3.18.RELEASE</spring.version>
+        <spring.version>5.2.9.RELEASE</spring.version>
         <jvm.version>1.8</jvm.version>
         <maven.compiler.source>${jvm.version}</maven.compiler.source>
         <maven.compiler.target>${jvm.version}</maven.compiler.target>
